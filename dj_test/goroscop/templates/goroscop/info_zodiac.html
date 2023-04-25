@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ sing }}</title>
-</head>
-<body>
-    <h1>Приложени гороскоп</h1>
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ sing }}
+{% endblock %}
+
+
+{% block content %}
+
+    {% include "includes/navbar.html" %}
 
     {% if discription_zodiac is None %}
-        <h2>not zodiac {{ sing }}</h2>
+        <h2>not zodiac {{ sing|upper }}</h2>
     {% else %}
-        <h2>{{ discription|title|safe }}</h2>
+        <h2>{{ discription_zodiac|capfirst|safe }}</h2>
     {% endif %}
 
-
-    <h2>{{ discription_zodiac }}</h2>
-    <p>{{ my_list }}</p>
-    <p>{{ my_tuple }}</p>
-    <p>{{ my_int }}</p>
-    <p>{{ my_float }}</p>
-    <p>{{ my_dict.name }} {{ my_dict.age }}</p>
-    <p>{{ my_class }} {{ my_dict.age }}</p>
-</body>
-</html>
+{% endblock %}
